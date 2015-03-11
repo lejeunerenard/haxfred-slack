@@ -2,7 +2,7 @@
   "name": "haxfred-slack",
   "version": "0.0.1",
   "description": "Integration between Haxfred and Slack",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "npm test"
   },
@@ -20,5 +20,6 @@
   },
   "homepage": "https://github.com/haxiom/haxfred-slack",
   "dependencies": {
+    "slack-client": "^1.4.0"
   }
 }
