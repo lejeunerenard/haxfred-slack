@@ -1,18 +1,18 @@
 'use strict';
 
-var path    = require('path');
+let path    = require('path');
 
-describe('error reporting for config', function () {
-  var haxfred;
+describe('error reporting for config', () => {
+  let haxfred;
 
-  beforeEach(function(){
+  beforeEach(() => {
     sinon.stub(console, 'error');
   });
-  afterEach(function() {
+  afterEach(() => {
     console.error.restore();
   });
 
-  it('should throw console.error when slack token is not provided', function () {
+  it('should throw console.error when slack token is not provided', () => {
     haxfred = new Haxfred({
       adapters: ['haxfred-slack'],
       rootDir: path.resolve(__dirname, '../lib')

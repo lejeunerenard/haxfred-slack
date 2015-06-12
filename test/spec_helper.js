@@ -7,4 +7,3 @@ global.Haxfred   = require('haxfred');
 
 chai.use(expect);
 chai.use(sinonChai);
-
