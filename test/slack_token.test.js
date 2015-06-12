@@ -1,15 +1,12 @@
 'use strict';
 
-let path    = require('path');
+let path = require('path');
 
 describe('error reporting for config', () => {
   let haxfred;
 
   beforeEach(() => {
-    sinon.stub(console, 'error');
-  });
-  afterEach(() => {
-    console.error.restore();
+    sandbox.stub(console, 'error');
   });
 
   it('should throw console.error when slack token is not provided', () => {

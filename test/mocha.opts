@@ -5,4 +5,6 @@
 --debug
 --compilers js:babel/register
 --check-leaks
---require ./test/spec_helper
+--require ./test/helpers/globals
+--globals sandbox
+--recursive 
