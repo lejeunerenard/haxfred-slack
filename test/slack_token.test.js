@@ -1,3 +1,5 @@
+'use strict';
+
 var sinon       = require('sinon');
 var sinonChai   = require('sinon-chai');
 var expect      = require('chai').expect;
@@ -12,6 +14,7 @@ chai.use(assert);
 chai.use(sinonChai);
 
 describe('error reporting for config', function () {
+  var stub, haxfred;
 
   beforeEach(function(){
     stub = sinon.stub(console, 'error');
