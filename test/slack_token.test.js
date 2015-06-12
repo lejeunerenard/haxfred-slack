@@ -1,6 +1,7 @@
 'use strict';
 
 let path = require('path');
+let haxfred_slack = require('../lib/haxfred-slack');
 
 describe('error reporting for config', () => {
   let haxfred;
@@ -15,7 +16,7 @@ describe('error reporting for config', () => {
       rootDir: path.resolve(__dirname, '../lib')
     });
 
-    haxfred.initialize();
+    haxfred_slack(haxfred);
 
     expect(console.error).to.be.calledWith("No slack_token found in config.json. Aborting slack login.");
   });
