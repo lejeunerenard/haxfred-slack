@@ -1,26 +1,15 @@
-var sinon       = require('sinon');
-var sinonChai   = require('sinon-chai');
-var expect      = require('chai').expect;
-var assert      = require('chai').assert;
-var path        = require('path');
-var chai        = require('chai');
+'use strict';
 
-var Haxfred     = require('haxfred');
+let path = require('path');
 
-chai.use(expect);
-chai.use(assert);
-chai.use(sinonChai);
+describe('error reporting for config', () => {
+  let haxfred;
 
-describe('error reporting for config', function () {
-
-  beforeEach(function(){
-    stub = sinon.stub(console, 'error');
-  });
-  afterEach(function() {
-    stub.restore();
+  beforeEach(() => {
+    sandbox.stub(console, 'error');
   });
 
-  it('should throw console.error when slack token is not provided', function () {
+  it('should throw console.error when slack token is not provided', () => {
     haxfred = new Haxfred({
       adapters: ['haxfred-slack'],
       rootDir: path.resolve(__dirname, '../lib')
@@ -28,6 +17,6 @@ describe('error reporting for config', function () {
 
     haxfred.initialize();
 
-    expect(stub).to.be.calledWith("No slack_token found in config.json. Aborting slack login.");
+    expect(console.error).to.be.calledWith("No slack_token found in config.json. Aborting slack login.");
   });
 });
