@@ -1,26 +1,15 @@
 'use strict';
 
-var sinon       = require('sinon');
-var sinonChai   = require('sinon-chai');
-var expect      = require('chai').expect;
-var assert      = require('chai').assert;
-var path        = require('path');
-var chai        = require('chai');
-
-var Haxfred     = require('haxfred');
-
-chai.use(expect);
-chai.use(assert);
-chai.use(sinonChai);
+var path    = require('path');
 
 describe('error reporting for config', function () {
-  var stub, haxfred;
+  var haxfred;
 
   beforeEach(function(){
-    stub = sinon.stub(console, 'error');
+    sinon.stub(console, 'error');
   });
   afterEach(function() {
-    stub.restore();
+    console.error.restore();
   });
 
   it('should throw console.error when slack token is not provided', function () {
@@ -31,6 +20,6 @@ describe('error reporting for config', function () {
 
     haxfred.initialize();
 
-    expect(stub).to.be.calledWith("No slack_token found in config.json. Aborting slack login.");
+    expect(console.error).to.be.calledWith("No slack_token found in config.json. Aborting slack login.");
   });
 });
