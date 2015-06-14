@@ -1,9 +1,9 @@
 'use strict';
 
-let on_message = require('../lib/on_message');
+let onMessage = require('../lib/onMessage');
 let slack_mock = require('./helpers/slack-mock');
 
-describe('on_message', () => {
+describe('onMessage', () => {
   let haxfred = { };
 
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('on_message', () => {
     let bad_msg = { type: 'not message' };
 
     it('does not call haxfred.emit', () => {
-      on_message(haxfred, bad_msg);
+      onMessage(haxfred, bad_msg);
 
       expect(haxfred.emit).to.not.be.called;
     });
@@ -28,7 +28,7 @@ describe('on_message', () => {
 
     it('emits slack.message event for msg that does not contain user name', () => {
       msg.text = 'hello friend';
-      on_message(haxfred, msg);
+      onMessage(haxfred, msg);
 
       expect(haxfred.emit).to.be.calledOnce;
       expect(haxfred.emit).to.be.calledWith('slack.message', msg);
@@ -36,7 +36,7 @@ describe('on_message', () => {
 
     it('emits slack.message event for msg that contains username but is not a direct mention', () => {
       msg.text = 'hello haxfred Haxfred';
-      on_message(haxfred, msg);
+      onMessage(haxfred, msg);
 
       expect(haxfred.emit).to.be.calledOnce;
       expect(haxfred.emit).to.be.calledWith('slack.message', msg);
@@ -44,7 +44,7 @@ describe('on_message', () => {
 
     it('emits slack.directMsg event for msg that contains username and is a direct mention', () => {
       msg.text = '<@haxfreds-id> hello';
-      on_message(haxfred, msg);
+      onMessage(haxfred, msg);
 
       expect(haxfred.emit).to.be.calledOnce;
       expect(haxfred.emit).to.be.calledWith('slack.directMsg', msg);

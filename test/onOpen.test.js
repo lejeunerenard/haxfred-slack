@@ -1,9 +1,9 @@
 'use strict';
 
-let on_open = require('../lib/on_open');
+let onOpen = require('../lib/onOpen');
 let slack_mock = require('./helpers/slack-mock');
 
-describe('on_open', () => {
+describe('onOpen', () => {
   let haxfred = { };
 
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('on_open', () => {
 
   context('when slack opens', () => {
     it('greets you with your name and the name of your team', () => {
-      on_open(haxfred);
+      onOpen(haxfred);
 
       expect(console.info).to.be.calledWith('Welcome to Slack. You are Haxfred of Haxiom');
     });
@@ -22,13 +22,13 @@ describe('on_open', () => {
 
   context('when you are not part of any channels or groups', () => {
     it('notifies you that you are not in any channels', () => {
-      on_open(haxfred);
+      onOpen(haxfred);
 
       expect(console.info).to.be.calledWith('You are not in any channels.');
     });
 
     it('emits empty arrays for channels and groups', () => {
-      on_open(haxfred);
+      onOpen(haxfred);
 
       var empty_emit = {
         channels: [],
@@ -46,14 +46,14 @@ describe('on_open', () => {
 
     it('notifies you what channels you are in', () => {
       haxfred.slack.channels = mock_channels;
-      on_open(haxfred);
+      onOpen(haxfred);
 
       expect(console.info).to.be.calledWith('You are in: is a member');
     });
 
     it('emits array of channels that you are in', () => {
       haxfred.slack.channels = mock_channels;
-      on_open(haxfred);
+      onOpen(haxfred);
 
       let emit = {
         channels: ['is a member'],
@@ -72,14 +72,14 @@ describe('on_open', () => {
 
     it('notifies you what groups you are in', () => {
       haxfred.slack.groups = mock_groups;
-      on_open(haxfred);
+      onOpen(haxfred);
 
       expect(console.info).to.be.calledWith('As well as: is open and not archived');
     });
 
     it('emits array of groups that you are in', () => {
       haxfred.slack.groups = mock_groups;
-      on_open(haxfred);
+      onOpen(haxfred);
 
       let emit = {
         channels: [],

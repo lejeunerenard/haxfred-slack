@@ -1,12 +1,12 @@
 'use strict';
 
-let on_error = require('../lib/on_error');
+let onError = require('../lib/onerror');
 
-describe('on_error', () => {
+describe('onError', () => {
   it('calls console.error with the error', () => {
     sandbox.stub(console, 'error');
 
-    on_error('error message');
+    onError('error message');
 
     expect(console.error).to.be.calledWith('error message');
   });
