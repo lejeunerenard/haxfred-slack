@@ -1,6 +1,5 @@
 'use strict';
 
-let path = require('path');
 let rewire = require('rewire');
 let haxfred_slack = rewire('../lib/haxfred-slack');
 let slack_mock = require('./helpers/slack-mock');
