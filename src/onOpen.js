@@ -12,16 +12,16 @@ function onOpen (haxfred) {
 
 function _getSlackChannels (channels) {
   return Object.keys(channels)
-        .map(function (k) { return channels[k] })
-        .filter(function (c) { return c.is_member })
-        .map(function (c) { return c.name })
+        .map((k) => { return channels[k] })
+        .filter((c) => { return c.is_member })
+        .map((c) => { return c.name })
 }
 
 function _getSlackGroups (groups) {
   return Object.keys(groups)
-        .map(function (k) { return groups[k] })
-        .filter(function (g) { return g.is_open && !g.is_archived })
-        .map(function (g) { return g.name })
+        .map((k) => { return groups[k] })
+        .filter((g) => { return g.is_open && !g.is_archived })
+        .map((g) => { return g.name })
 }
 
 function _initialGreeting (haxfred, channels, groups) {
