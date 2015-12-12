@@ -1,10 +1,7 @@
 --colors
 --reporter spec
---timeout 8000
---growl
---debug
---compilers js:babel/register
 --check-leaks
+--compilers js:babel-register
 --require ./test/helpers/globals
 --globals sandbox
---recursive 
+--recursive
