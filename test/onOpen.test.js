@@ -1,4 +1,4 @@
-import onOpen from '../lib/onOpen'
+import onOpen from '../src/onOpen'
 import Slack_Mock from './helpers/slack-mock'
 
 describe('onOpen', () => {

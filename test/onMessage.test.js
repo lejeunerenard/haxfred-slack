@@ -1,4 +1,4 @@
-import onMessage from '../lib/onMessage'
+import onMessage from '../src/onMessage'
 import Slack_Mock from './helpers/slack-mock'
 
 describe('onMessage', () => {

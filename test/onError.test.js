@@ -1,4 +1,4 @@
-import onError from '../lib/onerror'
+import onError from '../src/onerror'
 
 describe('onError', () => {
   it('calls console.error with the error', () => {

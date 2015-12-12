@@ -1,5 +1,5 @@
 import rewire from 'rewire'
-let haxfred_slack = rewire('../lib/haxfred-slack')
+let haxfred_slack = rewire('../src/haxfred-slack')
 import slack_mock from './helpers/slack-mock'
 haxfred_slack.__set__('Slack', slack_mock)
 
