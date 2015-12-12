@@ -1,5 +1,5 @@
-let onOpen = require('../lib/onOpen')
-let Slack_Mock = require('./helpers/slack-mock')
+import onOpen from '../lib/onOpen'
+import Slack_Mock from './helpers/slack-mock'
 
 describe('onOpen', () => {
   let haxfred = { }

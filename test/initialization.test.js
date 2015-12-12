@@ -1,6 +1,6 @@
-let rewire = require('rewire')
+import rewire from 'rewire'
 let haxfred_slack = rewire('../lib/haxfred-slack')
-let slack_mock = require('./helpers/slack-mock')
+import slack_mock from './helpers/slack-mock'
 haxfred_slack.__set__('Slack', slack_mock)
 
 describe('Haxfred-Slack initialization', () => {

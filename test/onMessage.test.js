@@ -1,5 +1,5 @@
-let onMessage = require('../lib/onMessage')
-let Slack_Mock = require('./helpers/slack-mock')
+import onMessage from '../lib/onMessage'
+import Slack_Mock from './helpers/slack-mock'
 
 describe('onMessage', () => {
   let haxfred = { }

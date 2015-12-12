@@ -1,4 +1,4 @@
-let onError = require('../lib/onerror')
+import onError from '../lib/onerror'
 
 describe('onError', () => {
   it('calls console.error with the error', () => {
