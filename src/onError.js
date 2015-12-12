@@ -1,8 +1,6 @@
-'use strict';
-
-function onError(error) {
-  console.error(error);
+function onError (error) {
+  console.error(error)
 }
 
-module.exports = onError;
+module.exports = onError
 

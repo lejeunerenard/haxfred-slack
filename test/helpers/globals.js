@@ -1,9 +1,7 @@
-global.sinon     = require('sinon');
-global.sinonChai = require('sinon-chai');
-global.expect    = require('chai').expect;
-global.chai      = require('chai');
+global.sinonChai = require('sinon-chai')
+global.chai = require('chai')
+global.expect = global.chai.expect
 
-chai.use(expect);
-chai.use(sinonChai);
+global.chai.use(global.sinonChai)
 
-global.Haxfred   = require('haxfred');
+global.Haxfred = require('haxfred')
